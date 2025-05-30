@@ -134,7 +134,7 @@ VALUES ('Admin', 'admin@angel.com', 'admin123', 'administrador');
 
 **Desarrollado por:**  
 Angel Israel 🧑‍💻  
-Maria Aurora  
+Maria Aurora ♥️
 Antonio Izamael  
 
 Proyecto académico realizado en 2025 para el curso de Ingeniería de Software.
