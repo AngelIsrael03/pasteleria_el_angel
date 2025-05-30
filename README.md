@@ -9,7 +9,7 @@ Sistema web completo desarrollado en PHP y MySQL para la gestión operativa de u
 **Pastelería El Ángel** es una solución digital desarrollada como proyecto académico, que simula la operación real de una pastelería:
 
 - Los clientes pueden registrarse, iniciar sesión, personalizar pedidos, visualizar productos y realizar compras.
-- Los administradores pueden gestionar productos, actualizar precios, controlar el stock, registrar insumos, activar promociones y monitorear alertas automáticas de stock bajo.
+- Los administradores pueden gestionar productos, actualizar precios, controlar el stock, registrar insumos, activar promociones y monitorear alertas automáticas por stock bajo.
 
 ---
 
@@ -104,7 +104,9 @@ Este sistema **no incluye usuarios predefinidos públicos**.
 ```sql
 INSERT INTO usuarios (nombre, correo, contraseña, tipo_usuario)
 VALUES ('Admin', 'admin@angel.com', 'admin123', 'administrador');
+```
 
+> ⚠️ Nota: las contraseñas en este proyecto no están cifradas debido a su uso académico y en entorno local. Para entornos reales se recomienda implementar `password_hash()`.
 
 ---
 
@@ -132,8 +134,9 @@ VALUES ('Admin', 'admin@angel.com', 'admin123', 'administrador');
 
 **Desarrollado por:**  
 Angel Israel 🧑‍💻  
-Maria Aurora
-Antonio Izamael
+Maria Aurora  
+Antonio Izamael  
+
 Proyecto académico realizado en 2025 para el curso de Ingeniería de Software.
 
 ---
