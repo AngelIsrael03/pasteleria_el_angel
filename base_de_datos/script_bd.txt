@@ -1,0 +1,124 @@
+-- SCRIPT DE ESTRUCTURA DE BASE DE DATOS: pasteleria_el_angel
+
+-- Creación de la base de datos
+CREATE DATABASE pasteleria_el_angel;
+USE pasteleria_el_angel;
+
+-- Tabla: alertas_stock
+CREATE TABLE `alertas_stock` (
+  `id_alerta` int(11) NOT NULL,
+  `id_insumo` int(11) DEFAULT NULL,
+  `fecha_alerta` datetime DEFAULT NULL,
+  `estado` enum('pendiente','atendida') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Tabla: carritos
+CREATE TABLE `carritos` (
+  `id_carrito` int(11) NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Tabla: carrito_productos
+CREATE TABLE `carrito_productos` (
+  `id_carrito` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `cantidad` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Tabla: detalle_pedido
+CREATE TABLE `detalle_pedido` (
+  `id_detalle` int(11) NOT NULL,
+  `id_pedido` int(11) DEFAULT NULL,
+  `id_producto` int(11) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `subtotal` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Tabla: detalle_personalizado
+CREATE TABLE `detalle_personalizado` (
+  `id` int(11) NOT NULL,
+  `id_pedido` int(11) NOT NULL,
+  `tamaño` varchar(50) DEFAULT NULL,
+  `sabor` varchar(100) DEFAULT NULL,
+  `relleno` varchar(100) DEFAULT NULL,
+  `cobertura` varchar(100) DEFAULT NULL,
+  `topping` varchar(100) DEFAULT NULL,
+  `forma` varchar(50) DEFAULT NULL,
+  `tema` varchar(100) DEFAULT NULL,
+  `dedicatoria` varchar(255) DEFAULT NULL,
+  `fecha_entrega` date DEFAULT NULL,
+  `precio` decimal(10,2) NOT NULL DEFAULT 0.00
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Tabla: insumos
+CREATE TABLE `insumos` (
+  `id_insumo` int(11) NOT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `cantidad_disponible` decimal(10,2) DEFAULT NULL,
+  `unidad_medida` enum('kg','g','L','unidades') DEFAULT NULL,
+  `cantidad_minima` decimal(10,2) DEFAULT NULL,
+  `fecha_vencimiento` date DEFAULT NULL,
+  `precio_compra` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Tabla: pedidos
+CREATE TABLE `pedidos` (
+  `id_pedido` int(11) NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  `fecha_pedido` datetime DEFAULT NULL,
+  `estado` enum('pendiente','completado','cancelado') DEFAULT NULL,
+  `metodo_pago` enum('efectivo','transferencia') DEFAULT NULL,
+  `fecha_recogida` date DEFAULT NULL,
+  `hora_recogida` time DEFAULT NULL,
+  `observaciones` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Tabla: productos
+CREATE TABLE `productos` (
+  `id_producto` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` text DEFAULT NULL,
+  `categoria` varchar(100) DEFAULT NULL,
+  `imagen` longblob DEFAULT NULL,
+  `precio` decimal(10,2) DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
+  `tipo` enum('normal','promocion','mas_vendido') DEFAULT 'normal',
+  `estado` enum('activo','inactivo') DEFAULT 'activo',
+  `precio_promocion` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Tabla: producto_insumo
+CREATE TABLE `producto_insumo` (
+  `id_producto` int(11) NOT NULL,
+  `id_insumo` int(11) NOT NULL,
+  `cantidad_utilizada` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Tabla: producto_seccion
+CREATE TABLE `producto_seccion` (
+  `id_producto` int(11) NOT NULL,
+  `id_seccion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Tabla: secciones
+CREATE TABLE `secciones` (
+  `id_seccion` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Tabla: usuarios
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `contraseña` varchar(255) NOT NULL,
+  `tipo_usuario` enum('cliente','administrador') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Tabla: ventas
+CREATE TABLE `ventas` (
+  `id_venta` int(11) NOT NULL,
+  `id_pedido` int(11) DEFAULT NULL,
+  `monto_total` decimal(10,2) DEFAULT NULL,
+  `fecha_venta` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;

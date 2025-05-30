@@ -1,0 +1,114 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff7f7;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h2 {
+    text-align: center;
+    color: #bf5e7a;
+    margin-bottom: 25px;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    background-color: #ffe4e4;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(200, 100, 120, 0.2);
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="submit"] {
+    background-color: #c94e6f;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #a93c5a;
+}
+
+.mensaje-contacto {
+    text-align: center;
+    margin-top: 30px;
+    color: #555;
+    font-size: 15px;
+}
+
+#info_transferencia {
+    background-color: #ffe9f1;
+    color: #444;
+    border: 1px solid #e3b1c0;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.btn-volver-inicio {
+    display: inline-block;
+    margin: 15px;
+    background-color: #fff;
+    color: #bf5e7a;
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 2px solid #bf5e7a;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn-volver-inicio:hover {
+    background-color: #bf5e7a;
+    color: #fff;
+}
+
+.btn-confirmar {
+    background-color: #c94e6f;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-confirmar:hover {
+    background-color: #a93c5a;
+}

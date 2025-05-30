@@ -1,0 +1,117 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fffaf9;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #bf4079;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+thead {
+    background-color: #f9d5e5;
+    color: #4a1c2b;
+}
+
+th, td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #f1d1dc;
+}
+
+tbody tr:hover {
+    background-color: #fff0f5;
+}
+
+table table {
+    font-size: 14px;
+    background-color: #fff7fa;
+    margin-bottom: 10px;
+}
+
+table table th {
+    background-color: #fcd6e1;
+    color: #4a1c2b;
+    padding: 10px;
+}
+
+table table td, table table th {
+    border: none;
+    text-align: center;
+    padding: 10px;
+}
+
+.centrar-boton {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-volver {
+    background-color: #d48db0;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-volver:hover {
+    background-color: #bf4079;
+}
+
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    th {
+        display: none;
+    }
+
+    td {
+        position: relative;
+        padding-left: 50%;
+        margin-bottom: 10px;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 16px;
+        font-weight: bold;
+        color: #bf4079;
+    }
+}
+
+/* Estado del pedido con colores */
+.estado-pendiente {
+    color: #888;
+    font-weight: bold;
+}
+
+.estado-completado {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.estado-cancelado {
+    color: #c62828;
+    font-weight: bold;
+}
+
