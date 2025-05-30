@@ -92,13 +92,19 @@ La base está diseñada en MySQL e incluye relaciones entre productos, insumos, 
 
 ---
 
-### Administrador
-- Usuario: `admin@angel.com`
-- Contraseña: `admin123` *(o crea uno directamente desde phpMyAdmin)*
+## 👥 Usuarios del sistema
 
-### Cliente
-- Usuario: `cliente@correo.com`
-- Contraseña: `cliente123`
+Este sistema **no incluye usuarios predefinidos públicos**.
+
+### Para comenzar a usar el sistema:
+- Regístrate como cliente desde la página principal utilizando el formulario de registro.
+- Si deseas utilizar funciones administrativas, crea manualmente un usuario tipo `administrador` desde phpMyAdmin o mediante SQL.
+
+### Ejemplo SQL para crear un administrador:
+```sql
+INSERT INTO usuarios (nombre, correo, contraseña, tipo_usuario)
+VALUES ('Admin', 'admin@angel.com', 'admin123', 'administrador');
+
 
 ---
 
